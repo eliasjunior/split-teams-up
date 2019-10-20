@@ -1,16 +1,16 @@
-import { sortMainList } from "./util";
+import { sortMainList, requiredParameter } from "./util";
 
 export default function Teams() {
   return {
-    getStringEmailConvertListNames: () => {
-      const emailsStr =
-        "Elias Junior <emcjunior@gmail.com>; Rahman, Tarik <Tarik.Rahman@mastercard.com>; Tar, Attila <Attila.Tar@mastercard.com>; Lennon, John <John.Lennon@mastercard.com>; Grimberg, Gabriel <Gabriel.Grimberg@mastercard.com>; Dias, Thiago <Thiago.Dias2@mastercard.com>; Ruane, Eoghan <Eoghan.Ruane@mastercard.com>; Mac Mathuna, Daire <Daire.MacMathuna@mastercard.com>; Barry, Mamadou <Mamadou.Barry2@mastercard.com>; McQuillan, Conor <Conor.McQuillan@mastercard.com>; Quinn, Simon <Simon.Quinn@mastercard.com>";
+    getStringEmailConvertListNames: (
+      emailsStr = requiredParameter("emailsStr")
+    ) => {
       return emailsStr
         .split(";")
         .map(nameEmail => nameEmail.slice(0, nameEmail.indexOf("<")))
         .map(fullName => fullName.slice(fullName.indexOf(",") + 1).trim());
     },
-    convertListToObject: listNames => {
+    convertListToObject: (listNames = requiredParameter("listNames")) => {
       const result = listNames.reduce((list, item) => {
         list.push({
           name: item,
@@ -21,7 +21,7 @@ export default function Teams() {
 
       return result;
     },
-    shuffle: theList => {
+    shuffle: (theList = requiredParameter("player list")) => {
       let orange = [];
       let red = [];
 

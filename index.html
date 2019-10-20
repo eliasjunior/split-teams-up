@@ -3,40 +3,26 @@
   <head>
     <title>Parcel Sandbox</title>
     <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
   </head>
 
   <body>
     <div id="app">
-      <div class="insert_players">
-        <textarea name="insert_players" rows="10"> </textarea>
-      </div>
-      <div class="pre-selection">
-        <h2>Players</h2>
-      </div>
-      <div class="description">
-        <h5>Weight Description</h5>
-        <div>
-          Weight 1 -> Average, can't do much damage
+      <div class="areaInput">
+        <div class="alert alert-secondary" role="alert">
+          Add the players here, copy and paste the emails/name from outtlock
         </div>
-        <div>
-          Weight 2 -> Itermediate, don't leave this guy alone
+        <div class="insert-players__areaInput">
+          <textarea name="insert_players" rows="10"> </textarea>
         </div>
       </div>
-      <div>Weight 3 -> He got some skills</div>
-      <div class="players-table">
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>type</th>
-            </tr>
-          </thead>
-          <tbody class="table-body">
-            <tr class="line"></tr>
-          </tbody>
-        </table>
-      </div>
-      <button>run</button>
+      <div class="list-players"></div>
+      <button type="button" class="btn btn-primary">Split up</button>
       <div class="result"></div>
     </div>
 

@@ -1,8 +1,5 @@
 body {
   font-family: sans-serif;
-}
-
-.players-table {
   margin: 10px;
 }
 
@@ -20,4 +17,8 @@ body {
 
 .red {
   border: solid 1px red;
+}
+
+.insert-players__areaInput textarea {
+  width: 100%;
 }

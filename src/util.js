@@ -10,3 +10,7 @@ export function sortMainList(theList) {
   });
   return result;
 }
+
+export function requiredParameter(name) {
+  throw new Error(`${name} is required`);
+}
