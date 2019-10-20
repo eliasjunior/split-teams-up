@@ -1,0 +1,23 @@
+body {
+  font-family: sans-serif;
+}
+
+.players-table {
+  margin: 10px;
+}
+
+.result {
+  display: flexbox;
+  flex-direction: column;
+}
+.line {
+  padding: 15px;
+}
+
+.orange {
+  border: solid 1px orange;
+}
+
+.red {
+  border: solid 1px red;
+}
