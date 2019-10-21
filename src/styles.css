@@ -21,4 +21,21 @@ body {
 
 .insert-players__areaInput textarea {
   width: 100%;
+  border: solid 1px #e2e3e5;
+}
+
+.skills-group {
+  border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.skills-group__name {
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.skills {
+  margin: 5px;
 }
