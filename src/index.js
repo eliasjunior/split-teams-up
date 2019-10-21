@@ -1,7 +1,6 @@
 import "./styles.css";
 import teams from "./teams";
 import persistenceAPI from "./persistenceAPI";
-import { file } from "@babel/types";
 
 const { getPlayerList, addAll } = persistenceAPI();
 
@@ -49,36 +48,43 @@ function readEmailFromTextBox(e) {
 
   element.innerHTML = result;
 
-  get("input[name='padawan']").addEventListener("click", updateTypeState);
-  get("input[name='jedi']").addEventListener("click", updateTypeState);
-  get("input[name='yoda']").addEventListener("click", updateTypeState);
+  // get("input[name='padawan']").addEventListener("click", updateTypeState);
+  // get("input[name='jedi']").addEventListener("click", updateTypeState);
+  // get("input[name='yoda']").addEventListener("click", updateTypeState);
 }
 
 function readWeigthFromInputs() {
   const playerList = getPlayerList();
-  Array.from(getAll("input")).forEach((field, index) => {
+  Array.from(getAll("input[type='radio']:checked")).forEach((field, index) => {
+    console.log(field.name);
     playerList[index].type = parseInt(field.value, 10);
   });
 
   const { orange, red } = shuffle(playerList);
 
-  const orangeTeam = orange.map(player => {
-    return `<div ="row">${player}</div>`;
-  });
+  const contentOrange = orange
+    .map(name => {
+      return ` <li class="list-group-item">${name}</li>`;
+    })
+    .join("");
 
-  const redTeam = red.map(player => {
-    return `<div ="row">${player}</div>`;
-  });
+  const contentRed = red
+    .map(name => {
+      return ` <li class="list-group-item">${name}</li>`;
+    })
+    .join("");
 
-  console.log(orangeTeam, redTeam);
+  const boxOrange = `<ul class="list-group row">
+    <li class="list-group-item list-group-item-danger">Orange</li>
+    ${contentOrange}
+  </ul>`;
 
-  get(
-    ".result"
-  ).innerHTML = `<div class="orange">${orangeTeam}</div> <div class="red">${redTeam}</div>`;
-}
+  const boxRed = `<ul class="list-group row">
+  <li class="list-group-item list-group-item-warning">Red</li>
+  ${contentRed}
+</ul>`;
 
-function updateTypeState(e) {
-  console.log("some thing here", e.target.name);
+  get(".result").innerHTML = `${boxOrange}${boxRed}`;
 }
 
 function getAll(target) {
@@ -90,7 +96,7 @@ function get(target) {
 
 function addLine(name) {
   return `
-    <ul class="list-group">
+    <ul class="list-group row">
       <li class="list-group-item">
         <div class="skills-group">
           <div class="skills-group__name">${name}</div>
