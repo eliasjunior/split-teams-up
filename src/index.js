@@ -1,14 +1,16 @@
 import "./styles.css";
-import teams from "./teams";
-import persistenceAPI from "./persistenceAPI";
-
-const { getPlayerList, addAll } = persistenceAPI();
+import presenter from "./presenter";
 
 const {
+  updatePlayerList,
+  getPlayerList,
+  addAll,
   getStringEmailConvertListNames,
   convertListToObject,
-  shuffle
-} = teams();
+  shuffle,
+  get,
+  getAll
+} = presenter;
 
 function Main() {
   eventListeners();
@@ -34,15 +36,15 @@ function readEmailFromTextBox(e) {
   const emailStr = e.target.value;
   // HTML PART
   const listNames = getStringEmailConvertListNames(emailStr);
-
-  addAll(convertListToObject(listNames));
+  const players = convertListToObject(listNames);
+  addAll(players);
   const playerList = getPlayerList();
-
+  console.log(playerList);
   const element = get(".list-players");
 
   const result = playerList
-    .map(player => {
-      return addLine(player.name);
+    .map(({ name, id }) => {
+      return addLine(name, id);
     })
     .join("");
 
@@ -55,10 +57,22 @@ function readEmailFromTextBox(e) {
 
 function readWeigthFromInputs() {
   const playerList = getPlayerList();
-  Array.from(getAll("input[type='radio']:checked")).forEach((field, index) => {
-    console.log(field.name);
-    playerList[index].type = parseInt(field.value, 10);
-  });
+  // Array.from(getAll("input[type='radio']:checked")).forEach((field, index) => {
+  //   console.log(field.name);
+  //   playerList[index].type = parseInt(field.value, 10);
+  // });
+
+  const inputValues = Array.from(getAll("input[type='radio']:checked")).map(
+    ({ name, value }) => {
+      console.log(name, value);
+      return {
+        value: parseInt(value, 10),
+        id: name.slice(0, name.indexOf("-"))
+      };
+    }
+  );
+
+  updatePlayerList(inputValues);
 
   const { orange, red } = shuffle(playerList);
 
@@ -75,26 +89,19 @@ function readWeigthFromInputs() {
     .join("");
 
   const boxOrange = `<ul class="list-group row">
-    <li class="list-group-item list-group-item-danger">Orange</li>
+    <li class="list-group-item list-group-item-warning">Orange</li>
     ${contentOrange}
   </ul>`;
 
   const boxRed = `<ul class="list-group row">
-  <li class="list-group-item list-group-item-warning">Red</li>
+  <li class="list-group-item list-group-item-danger">Red</li>
   ${contentRed}
 </ul>`;
 
   get(".result").innerHTML = `${boxOrange}${boxRed}`;
 }
 
-function getAll(target) {
-  return document.querySelectorAll(target);
-}
-function get(target) {
-  return document.querySelector(target);
-}
-
-function addLine(name) {
+function addLine(name, id) {
   return `
     <ul class="list-group row">
       <li class="list-group-item">
@@ -102,20 +109,19 @@ function addLine(name) {
           <div class="skills-group__name">${name}</div>
           <div class="skills">
             <label for="padawan"> 
-              <input name="${name}-padawan" type="radio" value="3" />Easy</label>
+              <input name="${id}" type="radio" value="3" checked /> Easy</label>
           </div>
           <div class="skills">
             <label for="jedi"> 
-              <input name="${name}-jedi" type="radio" value="2" />Medium</label>
+              <input name="${id}" type="radio" value="2" /> Medium</label>
           </div>
           <div class="skills">
             <label for="yoda"> 
-              <input name="${name}-yoda" type="radio" value="1" />Hard</label>
+              <input name="${id}" type="radio" value="1" /> Hard</label>
           </div>
         </div>
       </li>  
     </ul>
   `;
 }
-
 Main();

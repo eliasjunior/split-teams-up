@@ -1,8 +1,8 @@
-import { sortMainList, requiredParameter } from "./util";
+import { sortMainList, requiredParameter } from "../common/util";
 
-export default function Teams() {
+export default function Teams({ getPlayerList, idGerator }) {
   return {
-    getStringEmailConvertListNames: (
+    convertEmailsToListOfNames: (
       emailsStr = requiredParameter("emailsStr")
     ) => {
       return emailsStr
@@ -12,14 +12,23 @@ export default function Teams() {
     },
     convertListToObject: (listNames = requiredParameter("listNames")) => {
       const result = listNames.reduce((list, item) => {
-        list.push({
+        const id = idGerator(10);
+        list[id] = {
           name: item,
-          type: ""
-        });
+          type: "",
+          id
+        };
         return list;
       }, []);
 
       return result;
+    },
+    updatePlayerList: function(weighs) {
+      const playerList = getPlayerList();
+      weighs.forEach(({ value, id = requiredParameter("id") }) => {
+        console.log(value, id);
+        playerList[id].type = parseInt(value, 10);
+      });
     },
     shuffle: (theList = requiredParameter("player list")) => {
       let orange = [];

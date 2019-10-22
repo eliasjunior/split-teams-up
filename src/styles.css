@@ -28,16 +28,15 @@ body {
   border: none;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .skills-group__name {
   font-weight: 700;
-  margin-right: 10px;
 }
 
 .skills {
-  margin: 5px;
+  font-style: italic;
 }
 
 .spllit-up {
