@@ -8,23 +8,20 @@ export default function Teams({ getPlayerList, idGerator }) {
       const getFullName = nameEmail =>
         nameEmail.slice(0, nameEmail.indexOf("<")).trim();
       return emailsStr.split(";").map(getFullName);
-      //  .map(fullName => fullName.slice(fullName.indexOf(",") + 1).trim());
     },
     convertListToObject: (listNames = requiredParameter("listNames")) => {
-      const result = listNames.reduce(
-        (prev, name) => {
-          const id = idGerator(10);
-          const obj = {
-            name,
-            type: "",
-            id
-          };
-          prev.byId[id] = obj;
-          prev.list.push(obj);
-          return prev;
-        },
-        { byId: {}, list: [] }
-      );
+      const makeTableLike = (prev, name) => {
+        const id = idGerator(10);
+        const obj = {
+          name,
+          type: "",
+          id
+        };
+        prev.byId[id] = obj;
+        prev.list.push(obj);
+        return prev;
+      };
+      const result = listNames.reduce(makeTableLike, { byId: {}, list: [] });
 
       return result;
     },
