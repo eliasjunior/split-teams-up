@@ -42,39 +42,31 @@ function readEmailFromTextBox(e) {
   console.log(playerList);
   const element = get(".list-players");
 
-  const result = playerList
+  const result = playerList.list
     .map(({ name, id }) => {
       return addLine(name, id);
     })
     .join("");
 
   element.innerHTML = result;
-
-  // get("input[name='padawan']").addEventListener("click", updateTypeState);
-  // get("input[name='jedi']").addEventListener("click", updateTypeState);
-  // get("input[name='yoda']").addEventListener("click", updateTypeState);
 }
 
 function readWeigthFromInputs() {
-  const playerList = getPlayerList();
-  // Array.from(getAll("input[type='radio']:checked")).forEach((field, index) => {
-  //   console.log(field.name);
-  //   playerList[index].type = parseInt(field.value, 10);
-  // });
-
   const inputValues = Array.from(getAll("input[type='radio']:checked")).map(
     ({ name, value }) => {
       console.log(name, value);
       return {
         value: parseInt(value, 10),
-        id: name.slice(0, name.indexOf("-"))
+        id: name
       };
     }
   );
 
   updatePlayerList(inputValues);
 
-  const { orange, red } = shuffle(playerList);
+  const playerList = getPlayerList();
+
+  const { orange, red } = shuffle(playerList.list);
 
   const contentOrange = orange
     .map(name => {
@@ -109,7 +101,7 @@ function addLine(name, id) {
           <div class="skills-group__name">${name}</div>
           <div class="skills">
             <label for="padawan"> 
-              <input name="${id}" type="radio" value="3" checked /> Easy</label>
+              <input name="${id}" type="radio" value="3" /> Easy</label>
           </div>
           <div class="skills">
             <label for="jedi"> 

@@ -7,10 +7,10 @@ export default function persistenceAPI() {
       return playerList;
     },
     addAll: function(playerListParm = requiredParameter("playerList")) {
-      playerListParm.reduce((prev, item) => {
-        prev[item.name] = item;
-        return prev;
-      }, []);
+      // playerListParm.reduce((prev, item) => {
+      //   prev[item.name] = item;
+      //   return prev;
+      // }, []);
       playerList = playerListParm;
     }
   };

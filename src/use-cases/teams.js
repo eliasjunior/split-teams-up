@@ -5,29 +5,33 @@ export default function Teams({ getPlayerList, idGerator }) {
     convertEmailsToListOfNames: (
       emailsStr = requiredParameter("emailsStr")
     ) => {
-      return emailsStr
-        .split(";")
-        .map(nameEmail => nameEmail.slice(0, nameEmail.indexOf("<")))
-        .map(fullName => fullName.slice(fullName.indexOf(",") + 1).trim());
+      const getFullName = nameEmail =>
+        nameEmail.slice(0, nameEmail.indexOf("<")).trim();
+      return emailsStr.split(";").map(getFullName);
+      //  .map(fullName => fullName.slice(fullName.indexOf(",") + 1).trim());
     },
     convertListToObject: (listNames = requiredParameter("listNames")) => {
-      const result = listNames.reduce((list, item) => {
-        const id = idGerator(10);
-        list[id] = {
-          name: item,
-          type: "",
-          id
-        };
-        return list;
-      }, []);
+      const result = listNames.reduce(
+        (prev, name) => {
+          const id = idGerator(10);
+          const obj = {
+            name,
+            type: "",
+            id
+          };
+          prev.byId[id] = obj;
+          prev.list.push(obj);
+          return prev;
+        },
+        { byId: {}, list: [] }
+      );
 
       return result;
     },
     updatePlayerList: function(weighs) {
       const playerList = getPlayerList();
       weighs.forEach(({ value, id = requiredParameter("id") }) => {
-        console.log(value, id);
-        playerList[id].type = parseInt(value, 10);
+        playerList.byId[id].type = parseInt(value, 10);
       });
     },
     shuffle: (theList = requiredParameter("player list")) => {
