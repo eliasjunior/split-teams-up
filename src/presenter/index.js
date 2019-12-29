@@ -14,12 +14,14 @@ const {
 export default {
   convertListToObject,
   shuffle,
-  addAll,
+  addAllToDisplayBox(players) {
+    addAll(players)
+  },
   updatePlayerList,
   getStringEmailConvertListNames(names) {
     return convertEmailsToListOfNames(names);
   },
-  getPlayerList() {
+  getPlayerListFromBox() {
     return getPlayerList();
   },
   getAll(target) {
