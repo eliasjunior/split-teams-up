@@ -43,7 +43,7 @@ function Main() {
           ></textarea>
         </div>
       </div>
-      <PlayerList playerList={pList}></PlayerList>
+      <PlayerList playerList={pList} > </PlayerList>
       <button
         type="button"
         className="split-up btn btn-primary"
