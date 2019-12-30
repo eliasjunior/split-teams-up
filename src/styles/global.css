@@ -1,0 +1,59 @@
+body {
+  font-family: sans-serif;
+  margin: 10px;
+}
+
+.result {
+  display: flexbox;
+  flex-direction: column;
+}
+.line {
+  padding: 15px;
+}
+
+.orange {
+  border: solid 1px orange;
+}
+
+.red {
+  border: solid 1px red;
+}
+
+.insert-players__areaInput textarea {
+  width: 100%;
+  border: solid 1px #e2e3e5;
+}
+
+.skills-group {
+  border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.skills-group__name {
+  font-weight: 700;
+}
+
+.skills {
+  font-style: italic;
+}
+
+.spllit-up {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.result {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.list-players {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
