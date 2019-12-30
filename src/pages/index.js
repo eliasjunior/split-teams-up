@@ -1,12 +1,11 @@
 import React, { useState } from "react"
-import "../styles.css"
 import presenter from "../presenter"
-import DisplayPlayers from "./displayPlayers";
+import PlayerList from "./PlayerList";
 
 const {
   updatePlayerList,
-  getPlayerListFromBox,
-  addAllToDisplayBox,
+  getPlayers,
+  savePlayers,
   getStringEmailConvertListNames,
   convertListToObject,
   shuffle,
@@ -15,24 +14,17 @@ const {
 } = presenter
 
 function Main() {
-  const [emailsStr, setEmailsStr] = useState("")
   const [pList, setPlist] = useState([]);
 
   const splitTeamUp = () => {
     console.log("split up")
   }
 
-  const addEmailToState = ({ target }) => {
-    setEmailsStr(target.value)
-    const listNames = getStringEmailConvertListNames(emailsStr)
-    const players = convertListToObject(listNames)
-
-    addAllToDisplayBox(players)
-
-    const playerList = getPlayerListFromBox()
-    setPlist(playerList.list)
-
-    console.log("pList", pList)
+  const convertEmailsStrToPlayers = ({ target }) => {
+    const tempEmails = target.value;
+    const listNames = getStringEmailConvertListNames(tempEmails)
+    savePlayers(convertListToObject(listNames));
+    setPlist(getPlayers().list)
   }
 
   return (
@@ -45,13 +37,13 @@ function Main() {
         </div>
         <div className="insert-players__areaInput">
           <textarea
-            onChange={addEmailToState}
+            onChange={convertEmailsStrToPlayers}
             name="insert_players"
             rows="10"
           ></textarea>
         </div>
       </div>
-      <DisplayPlayers playerList={pList}></DisplayPlayers>
+      <PlayerList playerList={pList}></PlayerList>
       <button
         type="button"
         className="split-up btn btn-primary"

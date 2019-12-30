@@ -1,6 +1,6 @@
 import teams from "./teams";
 
-const { shuffle } = teams();
+const { shuffle, convertEmailsToListOfNames } = teams({});
 
 describe("Teams", () => {
   it("should 2 teams return same numbers of players", () => {
@@ -110,5 +110,10 @@ describe("Teams", () => {
     const { orange, red } = shuffle(list);
     expect(orange.length).toBe(3);
     expect(red.length).toBe(2);
+  });
+
+  it("should convert a email string list into names", () => {
+    const emailsString = "Jon snow<snow@mastercard.com>;Aria<aria@mastercard.com>;";
+    expect(convertEmailsToListOfNames(emailsString).length).toBe(2);
   });
 });

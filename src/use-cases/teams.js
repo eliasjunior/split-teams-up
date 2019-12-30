@@ -1,13 +1,15 @@
 import { sortMainList, requiredParameter } from "../common/util";
 
-export default function Teams({ getPlayerList, idGerator }) {
+export default function Teams({ getPlayerList, idGerator } = requiredParameter("teams dependencies")) {
   return {
     convertEmailsToListOfNames: (
       emailsStr = requiredParameter("emailsStr")
     ) => {
       const getFullName = nameEmail =>
         nameEmail.slice(0, nameEmail.indexOf("<")).trim();
-      return emailsStr.split(";").map(getFullName);
+      return emailsStr.split(";")
+      .filter(line => line !== "")
+      .map(getFullName);
     },
     convertListToObject: (listNames = requiredParameter("listNames")) => {
       const makeTableLike = (prev, name) => {
