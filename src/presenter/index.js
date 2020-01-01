@@ -1,16 +1,14 @@
-import teams from "../use-cases/teams";
-import persistenceAPI from "../use-cases/persistenceAPI";
-import nanoid from "nanoid";
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-const { getPlayerList, addAll } = persistenceAPI();
+import teams from "../use-cases";
 
 const {
-  updatePlayerList,
   convertEmailsToListOfNames,
   convertListToObject,
-  shuffle
-} = teams({ getPlayerList, idGerator: nanoid });
+  shuffle,
+  addAll,
+  getPlayerList,
+  updatePlayerList,
+} = teams;
+
 
 export default {
   convertListToObject,

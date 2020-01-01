@@ -1,6 +1,10 @@
 import teams from "./teams";
 
-const { shuffle, convertEmailsToListOfNames } = teams({});
+const getPlayerList = () => {
+  return 
+}
+
+const { shuffle, convertEmailsToListOfNames, updatePlayerList } = teams({});
 
 describe("Teams", () => {
   it("should 2 teams return same numbers of players", () => {

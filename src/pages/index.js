@@ -1,58 +1,24 @@
-import React, { useState } from "react"
-import presenter from "../presenter"
-import PlayerList from "./PlayerList";
-
-const {
-  updatePlayerList,
-  getPlayers,
-  savePlayers,
-  getStringEmailConvertListNames,
-  convertListToObject,
-  shuffle,
-  get,
-  getAll,
-} = presenter
+import React, { useState } from "react";
+import PlayerList from "./playerList";
+import TeamsView from "./teamsView";
+import PlayerInput from "./playerInput";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Main() {
-  const [pList, setPlist] = useState([]);
+  const [teams, setTeams] = useState({});
+  //workaround for now, when playerInput changes need to trigger the parent render, now the data its only in memory
+  const [update, setUpdate] = useState({});
 
-  const splitTeamUp = () => {
-    console.log("split up")
-  }
-
-  const convertEmailsStrToPlayers = ({ target }) => {
-    const tempEmails = target.value;
-    const listNames = getStringEmailConvertListNames(tempEmails)
-    savePlayers(convertListToObject(listNames));
-    setPlist(getPlayers().list)
+  const splitTeamsUp = (list) => {
+    setTeams(list);
   }
 
   return (
-    <div>
-      <div className="areaInput">
-        <div className="alert alert-secondary" role="alert">
-          Add the players here, copy and paste the emails/name from outlook
-          <br></br>
-          {'Format: "Jon snow<snow@mastercard.com>;Aria<aria@mastercard.com>;"'}
-        </div>
-        <div className="insert-players__areaInput">
-          <textarea
-            onChange={convertEmailsStrToPlayers}
-            name="insert_players"
-            rows="10"
-          ></textarea>
-        </div>
-      </div>
-      <PlayerList playerList={pList} > </PlayerList>
-      <button
-        type="button"
-        className="split-up btn btn-primary"
-        onClick={splitTeamUp}>
-        Split up
-      </button>
-      <div className="result"></div>
-    </div>
-  )
+    <React.Fragment>
+      <PlayerInput onChangeInput={() => setUpdate(!update)}></PlayerInput>
+      <PlayerList onClickButton={splitTeamsUp} update={update}></PlayerList>
+      <TeamsView {...teams}></TeamsView>
+    </React.Fragment>
+  );
 }
-
-export default Main
+export default Main;

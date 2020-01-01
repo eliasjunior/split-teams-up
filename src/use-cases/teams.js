@@ -1,6 +1,6 @@
 import { sortMainList, requiredParameter } from "../common/util";
 
-export default function Teams({ getPlayerList, idGerator } = requiredParameter("teams dependencies")) {
+export default function Teams({ idGerator } = requiredParameter("teams dependencies")) {
   return {
     convertEmailsToListOfNames: (
       emailsStr = requiredParameter("emailsStr")
@@ -27,12 +27,6 @@ export default function Teams({ getPlayerList, idGerator } = requiredParameter("
 
       return result;
     },
-    updatePlayerList: function(weighs) {
-      const playerList = getPlayerList();
-      weighs.forEach(({ value, id = requiredParameter("id") }) => {
-        playerList.byId[id].type = parseInt(value, 10);
-      });
-    },
     shuffle: (theList = requiredParameter("player list")) => {
       let orange = [];
       let red = [];
@@ -47,7 +41,6 @@ export default function Teams({ getPlayerList, idGerator } = requiredParameter("
           red.push(ascList.pop());
         }
       }
-
       return {
         orange: orange.map(p => p.name),
         red: red.map(p => p.name)
