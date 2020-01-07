@@ -1,38 +1,91 @@
 .App {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  color: #839cb2;
+}
+
+.content {
+  margin: 10px;
+}
+
+textarea {
+  border-radius: 5px;
+  outline: none;
+}
+.main-header {
+ 
+  font-weight: 600;
+}
+.title__main-header {
+  color: #dc3545;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.img__main-header {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+.result {
+  display: flexbox;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.line {
+  padding: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.orange {
+  border: solid 1px orange;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.red {
+  border: solid 1px red;
+}
+
+.insert-players__areaInput textarea {
+  width: 100%;
+  border: solid 1px #e2e3e5;
+}
+
+.title-input__areaInput {
+  font-weight: 500;
+  color: #6c757d;
+}
+
+.main-title_areaInput {
+  font-size: 30px;
+  margin: 30px 0 20px 0;
+}
+
+.skills-group {
+  border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.skills-group__name {
+  font-weight: 700;
+}
+
+.skills {
+  font-style: italic;
+}
+
+.split-up {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.result {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.list-players {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.row {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
