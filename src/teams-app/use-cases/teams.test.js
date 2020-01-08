@@ -1,9 +1,5 @@
 import teams from "./teams";
 
-const getPlayerList = () => {
-  return 
-}
-
 const { shuffle, convertEmailsToListOfNames, updatePlayerList } = teams({});
 
 describe("Teams", () => {

@@ -1,26 +1,44 @@
-import React from "react";
+import React, {useState} from "react";
+import Presenter from "../presenter";
+const { getPlayers } = Presenter;
 
 function PlayerView(props) {
-  const { name, id, onChangePlayerOption } = props;
+  const [checkVal, setCheckVal] = useState("");
+  const { name, id } = props;
+ 
   const updateLevel = ({ target }) => {
-    const { value } = target;
-    onChangePlayerOption({ value, id });
+    const { value, name } = target;
+    const playerList = getPlayers();
+    console.log(playerList, name)
+    //workaround for now
+    playerList.list.forEach(p => {
+      if(p.id === name) {
+        p.type = value;
+      }
+    })
+    setCheckVal(value);
   };
+  const getMainClass = () => {
+    if(checkVal !== "") {
+      return "skills-group valid__skills-group"
+    }
+    return "skills-group invalid";
+  }
   return (
-    <div className="skills-group" key={id}>
-      <div className="skills-group__name">{name}</div>
-      <div className="skills">
+    <div className={getMainClass()} key={id}>
+      <div className="name__skills-group">{name}</div>
+      <div className="check__skills-group ">
         <label>
           <input name={id} type="radio" value="3" onChange={updateLevel} /> Easy
         </label>
       </div>
-      <div className="skills">
+      <div className="check__skills-group ">
         <label>
           <input name={id} type="radio" value="2" onChange={updateLevel} />{" "}
           Medium
         </label>
       </div>
-      <div className="skills">
+      <div className="check__skills-group ">
         <label>
           <input name={id} type="radio" value="1" onChange={updateLevel} /> Hard
         </label>

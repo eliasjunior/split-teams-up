@@ -13,7 +13,7 @@ textarea {
   outline: none;
 }
 .main-header {
- 
+  padding: 10px;
   font-weight: 600;
 }
 .title__main-header {
@@ -57,19 +57,29 @@ textarea {
 }
 
 .skills-group {
-  border: none;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  margin-bottom: 5px;
 }
 
 .skills-group__name {
   font-weight: 700;
 }
 
-.skills {
+.check__skills-group  {
   font-style: italic;
 }
+
+.invalid {
+  border: #e8a5ab solid 1px;
+  border-radius: 3px;
+}
+
+.valid__skills-group {
+  border: none;
+}
+
 
 .split-up {
   margin-top: 10px;
