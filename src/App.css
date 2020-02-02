@@ -4,8 +4,16 @@
   color: #839cb2;
 }
 
-.content {
-  margin: 10px;
+@media only screen and (min-width: 700px) {
+  .content {
+    margin: 0 100px 20px 100px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .content {
+    margin: 10px;
+  }
 }
 
 textarea {
@@ -67,7 +75,7 @@ textarea {
   font-weight: 700;
 }
 
-.check__skills-group  {
+.check__skills-group {
   font-style: italic;
 }
 
@@ -79,7 +87,6 @@ textarea {
 .valid__skills-group {
   border: none;
 }
-
 
 .split-up {
   margin-top: 10px;
