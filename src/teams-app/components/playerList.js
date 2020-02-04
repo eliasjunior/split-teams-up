@@ -14,6 +14,9 @@ function PlayerList({onClickButton}) {
   };
 
   const display = () => {
+    if (getPlayers().list.length === 0) {
+      return "";
+    }
     const buildPlayerFromTable = obj => (
       <PlayerView
         key={obj.id}
@@ -21,9 +24,6 @@ function PlayerList({onClickButton}) {
       ></PlayerView>
     );
 
-    if (getPlayers().list.length === 0) {
-      return "";
-    }
     return <React.Fragment>
       {getPlayers().list.map(buildPlayerFromTable)}
       <button
