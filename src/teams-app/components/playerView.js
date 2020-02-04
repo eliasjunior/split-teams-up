@@ -9,7 +9,6 @@ function PlayerView(props) {
   const updateLevel = ({ target }) => {
     const { value, name } = target;
     const playerList = getPlayers();
-    console.log(playerList, name)
     //workaround for now
     playerList.list.forEach(p => {
       if(p.id === name) {
