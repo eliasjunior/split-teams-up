@@ -3,7 +3,7 @@ import "./App.css";
 import Teams from "./teams-app";
 import Header from "./teams-app/components/header";
 import Example from "./teams-app/components/example";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   return (
@@ -14,8 +14,18 @@ function App() {
           <Route path="/example">
             <Example />
           </Route>
-          <Route path="/">
+          <Route path="/splitup">
             <Teams />
+          </Route>
+          <Route path="/">
+            <div className="container">
+              <div>
+                <Link to="splitup">Slipt teams</Link>
+              </div>
+              <div>
+                <Link to="example">List emails example</Link>
+              </div>
+            </div>
           </Route>
         </Switch>
       </div>

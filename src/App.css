@@ -24,6 +24,11 @@ textarea {
   padding: 10px;
   font-weight: 600;
 }
+
+.menu__main-header {
+  position: fixed
+}
+
 .title__main-header {
   color: #dc3545;
   text-align: center;
