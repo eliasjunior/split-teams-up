@@ -3,6 +3,7 @@ import "./App.css";
 import Teams from "./teams-app";
 import Header from "./teams-app/components/header";
 import Example from "./teams-app/components/example";
+import MCMenu from "./teams-app/components/mcMenu";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -14,8 +15,11 @@ function App() {
           <Route path="/example">
             <Example />
           </Route>
-          <Route path="/">
+          <Route path="/splitup">
             <Teams />
+          </Route>
+          <Route path="/">
+            <MCMenu />
           </Route>
         </Switch>
       </div>

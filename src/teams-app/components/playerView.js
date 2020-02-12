@@ -1,29 +1,29 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Presenter from "../presenter";
+import "./playerView.css";
 const { getPlayers } = Presenter;
 
 function PlayerView(props) {
   const [checkVal, setCheckVal] = useState("");
   const { name, id } = props;
- 
+
   const updateLevel = ({ target }) => {
     const { value, name } = target;
     const playerList = getPlayers();
-    console.log(playerList, name)
     //workaround for now
     playerList.list.forEach(p => {
-      if(p.id === name) {
+      if (p.id === name) {
         p.type = value;
       }
-    })
+    });
     setCheckVal(value);
   };
   const getMainClass = () => {
-    if(checkVal !== "") {
-      return "skills-group valid__skills-group"
+    if (checkVal !== "") {
+      return "skills-group valid__skills-group";
     }
     return "skills-group invalid";
-  }
+  };
   return (
     <div className={getMainClass()} key={id}>
       <div className="name__skills-group">{name}</div>
