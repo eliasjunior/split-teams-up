@@ -1,7 +1,6 @@
 import React from "react";
 import logo from "../../img/icons8-soccer-player-80.png";
 import { Link, useLocation } from "react-router-dom";
-import "./header.css";
 
 export default function Header() {
   const location = useLocation();
@@ -10,12 +9,19 @@ export default function Header() {
   const displayBack = () => {
     const SLASH_BAR = 2;
     const isHome = location.pathname.length < SLASH_BAR;
+
     if (isHome) {
       return "";
     } else {
       return (
         <Link className="menu__main-header" to="/">
-          BACK
+          <img
+            src="/assets/img/bootstrap.svg"
+            alt=""
+            width="32"
+            height="32"
+            title="Bootstrap"
+          />
         </Link>
       );
     }

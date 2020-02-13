@@ -1,7 +1,7 @@
 import React from "react";
 
 export default () => {
-  const content = `Jon snow<snow@mastercard.com>;
+    const content = `Jon snow<snow@mastercard.com>;
     Aria Stark<aria@mastercard.com>;
     Sansa Stark<sanza@mastercard.com>;
     Gandalf the grey<galdalf@mastercard.com>;
@@ -13,6 +13,8 @@ export default () => {
     Frodo Bagins<bagins@mastercard.com>;
     Harry Porter<porter@mastercard.com>;
     Tony Stark<startk@mastercard.com>;
-    `;
-  return <div className="content">{content}</div>;
-};
+    `
+    return <div>
+        {content}
+    </div>
+}
