@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Presenter from "../presenter";
+import "./playerView.css";
 const { getPlayers } = Presenter;
 
 function PlayerView(props) {
