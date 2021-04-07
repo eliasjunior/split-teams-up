@@ -1,4 +1,4 @@
-import teams from "domain";
+import teams from "../../domain";
 
 const { getPlayerList } = teams;
 
