@@ -7,3 +7,14 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.form-error {
+  color: #f47a0e;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.total-label {
+  color: #f47a0e;
+  font-weight: 700;
+}

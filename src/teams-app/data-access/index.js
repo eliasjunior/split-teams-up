@@ -1,10 +1,10 @@
-import persistenceAPI from "../use-cases/persistenceAPI";
+import persistenceAPI from "../data-access/persistenceAPI";
 import nanoid from "nanoid";
 import teams from "./teams";
 const { getPlayerList, updatePlayerList, addAll } = persistenceAPI();
 
 const { convertEmailsToListOfNames, convertListToObject, shuffle } = teams({
-  idGerator: nanoid
+  idGenerator: nanoid,
 });
 
 export default {
@@ -13,5 +13,5 @@ export default {
   shuffle,
   addAll,
   getPlayerList,
-  updatePlayerList
+  updatePlayerList,
 };

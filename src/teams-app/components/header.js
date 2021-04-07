@@ -6,7 +6,7 @@ import "./header.css";
 export default function Header() {
   const location = useLocation();
 
-  const headerContent = "MC Football";
+  const headerContent = "Football Game";
   const displayBack = () => {
     const SLASH_BAR = 2;
     const isHome = location.pathname.length < SLASH_BAR;

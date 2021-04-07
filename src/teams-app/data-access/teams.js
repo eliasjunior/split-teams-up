@@ -1,23 +1,32 @@
 import { sortMainList, requiredParameter } from "../common/util";
 
-export default function Teams({ idGerator } = requiredParameter("teams dependencies")) {
+export default function Teams(
+  { idGenerator } = requiredParameter("teams dependencies")
+) {
   return {
     convertEmailsToListOfNames: (
       emailsStr = requiredParameter("emailsStr")
     ) => {
-      const getFullName = nameEmail =>
-        nameEmail.slice(0, nameEmail.indexOf("<")).trim();
-      return emailsStr.trim().split(";")
-      .filter(line => line !== "" )
-      .map(getFullName);
+      const getFullName = (nameEmail) => {
+        const index = nameEmail.indexOf("<");
+        return index !== -1
+          ? nameEmail.slice(0, index).trim()
+          : nameEmail.trim();
+      };
+      const result = emailsStr
+        .trim()
+        .split(";")
+        .filter((value) => value !== "")
+        .map(getFullName);
+      return result;
     },
     convertListToObject: (listNames = requiredParameter("listNames")) => {
       const makeTableLike = (prev, name) => {
-        const id = idGerator(10);
+        const id = idGenerator(10);
         const obj = {
           name,
           type: "",
-          id
+          id,
         };
         prev.byId[id] = obj;
         prev.list.push(obj);
@@ -42,9 +51,9 @@ export default function Teams({ idGerator } = requiredParameter("teams dependenc
         }
       }
       return {
-        orange: orange.map(p => p.name),
-        red: red.map(p => p.name)
+        orange: orange.map((p) => p.name),
+        red: red.map((p) => p.name),
       };
-    }
+    },
   };
 }

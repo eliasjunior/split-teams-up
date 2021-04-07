@@ -4,7 +4,7 @@ import "./playerInput.css";
 const {
   savePlayers,
   getStringEmailConvertListNames,
-  convertListToObject
+  convertListToObject,
 } = Presenter;
 
 function PlayerInput({ onChangeInput }) {
@@ -12,16 +12,16 @@ function PlayerInput({ onChangeInput }) {
     const tempEmails = target.value;
     const listNames = getStringEmailConvertListNames(tempEmails);
     savePlayers(convertListToObject(listNames));
-    //workaround trigger parent
-    onChangeInput();
+    onChangeInput(listNames);
   };
 
   return (
     <div className="areaInput">
       <div className="main-title_areaInput">Let's Split up!</div>
       <div className="title-input__areaInput">
-        Copy and paste the emails/name from email list:
-        {'e.g: "Jon snow<snow@mastercard.com>;'}
+        Copy and paste the emails/name from the email list:{" "}
+        {'e.g: "Jon snow<snow@mastercard.com>;'} or just type the names
+        separated by {";"}
       </div>
       <div className="insert-players__areaInput">
         <textarea

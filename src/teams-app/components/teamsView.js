@@ -6,9 +6,9 @@ function TeamsView({ orange, red }) {
     return "";
   }
   const buildOrange = () => {
-    return orange.map(name => {
+    return orange.map((name, i) => {
       return (
-        <li key={name} className="list-group-item">
+        <li key={i} className="list-group-item">
           {name}
         </li>
       );
@@ -16,9 +16,9 @@ function TeamsView({ orange, red }) {
   };
 
   const buildRed = () => {
-    return red.map(name => {
+    return red.map((name, i) => {
       return (
-        <li key={name} className="list-group-item">
+        <li key={i} className="list-group-item">
           {name}
         </li>
       );

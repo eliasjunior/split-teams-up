@@ -1,4 +1,4 @@
-import teams from "../use-cases";
+import teams from "../data-access";
 
 const {
   convertEmailsToListOfNames,
@@ -9,15 +9,15 @@ const {
   updatePlayerList,
 } = teams;
 
-
 export default {
   convertListToObject,
   shuffle,
   savePlayers(players) {
-    addAll(players)
+    addAll(players);
   },
   updatePlayerList,
   getStringEmailConvertListNames(names) {
+    //TODO move to helper 
     return convertEmailsToListOfNames(names);
   },
   getPlayers() {
@@ -28,5 +28,5 @@ export default {
   },
   get(target) {
     return document.querySelector(target);
-  }
+  },
 };
