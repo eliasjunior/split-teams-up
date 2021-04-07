@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import PlayerInput from "./components/playerInput";
-import PlayerList from "./components/playerList";
-import TeamsView from "./components/teamsView";
+import PlayerInput from "./player-input";
+import PlayerList from "./player-list";
+import TeamsView from "./TeamsView";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Events, animateScroll as scroll, scrollSpy } from "react-scroll";
 

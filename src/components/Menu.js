@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./mcMenu.css";
+import "./menu.css";
 
 export default () => {
   return (
     <div className="container shadow-sm p-3 mb-5 bg-white rounded">
       <div className="menu-item">
-        <Link to="splitup">Slipt teams up</Link>
+        <Link to="splitup">Split teams up</Link>
       </div>
       <div className="menu-item">
         <Link to="example">Confirm game</Link>

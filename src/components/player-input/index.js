@@ -1,5 +1,5 @@
 import React from "react";
-import Presenter from "../presenter";
+import Presenter from "./Presenter";
 import "./playerInput.css";
 const {
   savePlayers,

@@ -1,26 +1,26 @@
-import teams from "./teams";
+import UseCase from "./ConvertEmailNamePlayerUseCase";
 
-const { shuffle, convertEmailsToListOfNames, updatePlayerList } = teams({});
+const { shuffle, convertEmailsToListOfNames } = UseCase({});
 
 describe("Teams", () => {
   it("should 2 teams return same numbers of players", () => {
     const list = [
       {
         name: "Messi",
-        type: 1
+        type: 1,
       },
       {
         name: "Iniesta",
-        type: 1
+        type: 1,
       },
       {
         name: "Ronaldo",
-        type: 1
+        type: 1,
       },
       {
         name: "Elias",
-        type: 3
-      }
+        type: 3,
+      },
     ];
     const { orange, red } = shuffle(list);
     expect(orange.length).toBe(2);
@@ -31,27 +31,27 @@ describe("Teams", () => {
     const list = [
       {
         name: "Messi",
-        type: 1
+        type: 1,
       },
       {
         name: "Ronaldo",
-        type: 1
+        type: 1,
       },
       {
         name: "Iniesta",
-        type: 2
+        type: 2,
       },
       {
         name: "Casemiro",
-        type: 2
-      }
+        type: 2,
+      },
     ];
     const { orange, red } = shuffle(list);
-    const p1 = orange.find(player => player.name === "Messi");
-    const p2 = red.find(player => player.name === "Ronaldo");
+    const p1 = orange.find((player) => player.name === "Messi");
+    const p2 = red.find((player) => player.name === "Ronaldo");
 
-    const p3 = orange.find(player => player.name === "Iniesta");
-    const p4 = red.find(player => player.name === "Casemiro");
+    const p3 = orange.find((player) => player.name === "Iniesta");
+    const p4 = red.find((player) => player.name === "Casemiro");
 
     expect(p1).not.toBeNull();
     expect(p2).not.toBeNull();
@@ -64,20 +64,20 @@ describe("Teams", () => {
     const list = [
       {
         name: "Messi",
-        type: 1
+        type: 1,
       },
       {
         name: "Iniesta",
-        type: 2
+        type: 2,
       },
       {
         name: "Ronaldo",
-        type: 3
+        type: 3,
       },
       {
         name: "Elias",
-        type: null
-      }
+        type: null,
+      },
     ];
     const { orange, red } = shuffle(list);
     expect(orange.length).toBe(2);
@@ -88,24 +88,24 @@ describe("Teams", () => {
     const list = [
       {
         name: "Messi",
-        type: 1
+        type: 1,
       },
       {
         name: "Iniesta",
-        type: 1
+        type: 1,
       },
       {
         name: "Ronaldo",
-        type: 2
+        type: 2,
       },
       {
         name: "Chico",
-        type: 2
+        type: 2,
       },
       {
         name: "Jon",
-        type: 2
-      }
+        type: 2,
+      },
     ];
     const { orange, red } = shuffle(list);
     expect(orange.length).toBe(3);
@@ -113,11 +113,12 @@ describe("Teams", () => {
   });
 
   it("should convert a email string list into names", () => {
-    const emailsString = "Jon snow<snow@mastercard.com>;Aria<aria@mastercard.com>;";
+    const emailsString =
+      "Jon snow<snow@mastercard.com>;Aria<aria@mastercard.com>;";
     expect(convertEmailsToListOfNames(emailsString).length).toBe(2);
 
-    const emailsString2 = "Jon snow<snow@mastercard.com>;Aria<aria@mastercard.com>;Jon snow<snow@mastercard.com>;\n";
+    const emailsString2 =
+      "Jon snow<snow@mastercard.com>;Aria<aria@mastercard.com>;Jon snow<snow@mastercard.com>;\n";
     expect(convertEmailsToListOfNames(emailsString2).length).toBe(3);
   });
-
 });

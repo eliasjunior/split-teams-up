@@ -1,6 +1,6 @@
 import { requiredParameter } from "util";
 
-export default function persistenceAPI() {
+export default function PlayerRepository() {
   let playerList = { byId: null, list: [] };
   return {
     getPlayerList: function () {

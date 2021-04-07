@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import PlayerView from "./playerView";
-import Presenter from "../presenter";
+import PlayerView from "../player-view";
+import Presenter from "./Presenter";
 import "./playerList.css";
 
 const { getPlayers, shuffle } = Presenter;
@@ -17,11 +17,11 @@ function PlayerList({ onClickButton }) {
   };
 
   const formMessage = () => {
-    if  (validForm) {
+    if (validForm) {
       return <span className="form-error">Choose players level</span>;
     }
-    return ""
-  };;
+    return "";
+  };
 
   const display = () => {
     const buildPlayerFromTable = (obj) => <PlayerView key={obj.id} {...obj} />;
@@ -37,7 +37,7 @@ function PlayerList({ onClickButton }) {
           className="split-up btn btn-primary"
           onClick={splitTeamUp}
         >
-          Split up 
+          Split up
         </button>
         {formMessage()}
       </React.Fragment>

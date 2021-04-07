@@ -1,11 +1,10 @@
 import React from "react";
 import "./App.css";
-import Teams from "./teams-app";
-import Header from "./teams-app/components/header";
-import Example from "./teams-app/components/example";
-import MCMenu from "./teams-app/components/mcMenu";
+import Main from "./components/Main";
+import Header from "./components/header";
+import Example from "./components/example";
+import MCMenu from "./components/Menu";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 
 function App() {
   return (
@@ -17,7 +16,7 @@ function App() {
             <Example />
           </Route>
           <Route path="/splitup">
-            <Teams />
+            <Main />
           </Route>
           <Route path="/">
             <MCMenu />

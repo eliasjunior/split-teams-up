@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../img/icons8-soccer-player-80.png";
+import logo from "img/icons8-soccer-player-80.png";
 import { Link, useLocation } from "react-router-dom";
 import "./header.css";
 

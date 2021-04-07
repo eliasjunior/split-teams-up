@@ -1,6 +1,6 @@
 import { sortMainList, requiredParameter } from "../common/util";
 
-export default function Teams(
+export default function ConvertEmailNamePlayerUseCase(
   { idGenerator } = requiredParameter("teams dependencies")
 ) {
   return {

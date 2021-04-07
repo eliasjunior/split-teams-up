@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Presenter from "../presenter";
+import Presenter from "./Presenter";
 import "./playerView.css";
 const { getPlayers } = Presenter;
 
@@ -11,7 +11,7 @@ function PlayerView(props) {
     const { value, name } = target;
     const playerList = getPlayers();
     //workaround for now
-    playerList.list.forEach(p => {
+    playerList.list.forEach((p) => {
       if (p.id === name) {
         p.type = value;
       }
