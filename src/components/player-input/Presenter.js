@@ -8,7 +8,6 @@ export default {
     addAll(players);
   },
   getStringEmailConvertListNames(names) {
-    //TODO move to helper
-    return convertEmailsToListOfNames(names);
+      return convertEmailsToListOfNames(names);
   },
 };
