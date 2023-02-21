@@ -7,13 +7,13 @@ export default function PlayerRepository() {
       return playerList;
     },
     updatePlayerList: function (weighs = requiredParameter("weighs")) {
-      weighs.forEach(({ value, id = requiredParameter("id") }) => {
+      weighs.forEach(({ value, id = requiredParameter("id"), level }) => {
         if (!playerList.byId[id]) {
           throw new Error("persistence error, please fix this");
         }
         playerList.byId[id].type = parseInt(value, 10);
       });
-      //console.log("updatePlayerList", playerList);
+      console.log("updatePlayerList", playerList);
     },
     addAll: function (playerListParm = requiredParameter("playerList")) {
       playerList = playerListParm;

@@ -7,13 +7,14 @@ function PlayerView(props) {
   const [checkVal, setCheckVal] = useState("");
   const { name, id } = props;
 
-  const updateLevel = ({ target }) => {
+  const updateLevel = ({ target, level }) => {
     const { value, name } = target;
     const playerList = getPlayers();
     //workaround for now
     playerList.list.forEach((p) => {
       if (p.id === name) {
         p.type = value;
+        p.level = level;
       }
     });
     setCheckVal(value);
@@ -29,18 +30,39 @@ function PlayerView(props) {
       <div className="name__skills-group">{name}</div>
       <div className="check__skills-group ">
         <label>
-          <input name={id} type="radio" value="3" onChange={updateLevel} /> Easy
+          <input
+            name={id}
+            type="radio"
+            value="3"
+            onChange={({ target }) => updateLevel({ target, level: "forward" })}
+          />{" "}
+          Forward
         </label>
       </div>
       <div className="check__skills-group ">
         <label>
-          <input name={id} type="radio" value="2" onChange={updateLevel} />{" "}
-          Medium
+          <input
+            name={id}
+            type="radio"
+            value="2"
+            onChange={({ target }) =>
+              updateLevel({ target, level: "midfield" })
+            }
+          />{" "}
+          Midfield
         </label>
       </div>
       <div className="check__skills-group ">
         <label>
-          <input name={id} type="radio" value="1" onChange={updateLevel} /> Hard
+          <input
+            name={id}
+            type="radio"
+            value="1"
+            onChange={({ target }) =>
+              updateLevel({ target, level: "defender" })
+            }
+          />{" "}
+          Defender
         </label>
       </div>
     </div>

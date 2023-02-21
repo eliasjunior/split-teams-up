@@ -7,15 +7,7 @@ export default function ConvertEmailNamePlayerUseCase(
     convertEmailsToListOfNames: (
       emailsStr = requiredParameter("emailsStr")
     ) => {
-      const getFullName = (nameEmail) => {
-        const index = nameEmail.indexOf("<");
-        return index !== -1
-          ? nameEmail.slice(0, index).trim()
-          : nameEmail.trim();
-      };
-      const result = emailsStr
-        .trim()
-        .split(";")
+      const result = buildNameList(emailsStr)
         .filter((value) => value !== "")
         .map(getFullName);
       return result;
@@ -51,9 +43,19 @@ export default function ConvertEmailNamePlayerUseCase(
         }
       }
       return {
-        orange: orange.map((p) => p.name),
-        red: red.map((p) => p.name),
+        orange,
+        red,
       };
     },
   };
+}
+
+function buildNameList(emailsStr) {
+  return emailsStr.includes(";") ? emailsStr.split(";") : emailsStr.split("\n");
+}
+function getFullName(nameEmail) {
+  const emailStartIndx = nameEmail.indexOf("<");
+  return emailStartIndx !== -1
+    ? nameEmail.slice(0, emailStartIndx).trim()
+    : nameEmail.trim();
 }
