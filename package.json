@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
     "bootstrap-icons": "1.0.0-alpha2",
     "nanoid": "^2.1.8",
@@ -15,6 +12,11 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^5.0.1",
     "react-scroll": "^1.7.15"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
   },
   "scripts": {
     "start": "react-scripts start",
