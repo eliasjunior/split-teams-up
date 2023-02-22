@@ -7,10 +7,11 @@ export default function ConvertEmailNamePlayerUseCase(
     convertEmailsToListOfNames: (
       emailsStr = requiredParameter("emailsStr")
     ) => {
-      const result = buildNameList(emailsStr)
+      const listOfNames = buildNameList(emailsStr)
         .filter((value) => value !== "")
-        .map(getFullName);
-      return result;
+        .map(getFullName)
+        .filter((name) => name.length > 0);
+      return listOfNames;
     },
     convertListToObject: (listNames = requiredParameter("listNames")) => {
       const makeTableLike = (prev, name) => {

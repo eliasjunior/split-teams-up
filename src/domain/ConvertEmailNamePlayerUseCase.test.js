@@ -120,5 +120,10 @@ describe("Teams", () => {
     const emailsString2 =
       "Jon snow<snow@mastercard.com>;Aria<aria@mastercard.com>;Jon snow<snow@mastercard.com>;\n";
     expect(convertEmailsToListOfNames(emailsString2).length).toBe(3);
+
+    const emailsString3 = "Jon snow\nAria\n";
+
+    expect(convertEmailsToListOfNames(emailsString3).length).toBe(2);
+
   });
 });
