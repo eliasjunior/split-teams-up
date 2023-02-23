@@ -114,11 +114,11 @@ describe("Teams", () => {
 
   it("should convert a email string list into names", () => {
     const emailsString =
-      "Jon snow<snow@mastercard.com>;Aria<aria@mastercard.com>;";
+      "Jon snow<snow@mycompany.com>;Aria<aria@mycompany.com>;";
     expect(convertEmailsToListOfNames(emailsString).length).toBe(2);
 
     const emailsString2 =
-      "Jon snow<snow@mastercard.com>;Aria<aria@mastercard.com>;Jon snow<snow@mastercard.com>;\n";
+      "Jon snow<snow@mycompany.com>;Aria<aria@mycompany.com>;Jon snow<snow@mycompany.com>;\n";
     expect(convertEmailsToListOfNames(emailsString2).length).toBe(3);
 
     const emailsString3 = "Jon snow\nAria\n";

@@ -1,18 +1,18 @@
 import React from "react";
 
 export default function example() {
-  const content = `Jon snow<snow@mastercard.com>;
-    Aria Stark<aria@mastercard.com>;
-    Sansa Stark<sanza@mastercard.com>;
-    Gandalf the grey<galdalf@mastercard.com>;
-    Saruman Wizard<sw@mastercard.com>;
-    Geralt of Rivea<witcher@mastercard.com>;
-    Mr Anderson<neo@mastercard.com>;
-    Rocky Balboa<rocky@mastercard.com>;
-    Duck<sob@mastercard.com>;
-    Frodo Bagins<bagins@mastercard.com>;
-    Harry Porter<porter@mastercard.com>;
-    Tony Stark<startk@mastercard.com>;
+  const content = `Jon snow<snow@mycompany.com>;
+    Aria Stark<aria@mycompany.com>;
+    Sansa Stark<sanza@mycompany.com>;
+    Gandalf the grey<galdalf@mycompany.com>;
+    Saruman Wizard<sw@mycompany.com>;
+    Geralt of Rivea<witcher@mycompany.com>;
+    Mr Anderson<neo@mycompany.com>;
+    Rocky Balboa<rocky@mycompany.com>;
+    Duck<sob@mycompany.com>;
+    Frodo Bagins<bagins@mycompany.com>;
+    Harry Porter<porter@mycompany.com>;
+    Tony Stark<startk@mycompany.com>;
     `;
   return <div className="content">{content}</div>;
 }

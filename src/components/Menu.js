@@ -9,7 +9,7 @@ export default function Menu() {
         <Link to="splitup">Split teams up</Link>
       </div>
       <div className="menu-item">
-        <Link to="example">Confirm game</Link>
+        <Link to="">Confirm game[In construction]</Link>
       </div>
       <div className="menu-item">
         <Link to="example">List emails example</Link>
