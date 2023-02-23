@@ -1,11 +1,10 @@
-FROM node:15 as build
-
+FROM node:16 as build
 ENV NODE_ENV=production
 ENV PATH /app/node_modules/.bin:$PATH
 
 WORKDIR /app
 
-COPY ["package.json", "package-lock.json", ".eslintrc.js", "jsconfig.json", "./"]
+COPY ["package.json", "package-lock.json", "jsconfig.json", "./"]
 
 RUN npm install 
 RUN npm install react-scripts@5.0.1 -g --silent

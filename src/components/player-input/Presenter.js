@@ -2,7 +2,7 @@ import teams from "../../domain";
 
 const { convertEmailsToListOfNames, convertListToObject, addAll } = teams;
 
-export default {
+const delegator = {
   convertListToObject,
   savePlayers(players) {
     addAll(players);
@@ -11,3 +11,4 @@ export default {
       return convertEmailsToListOfNames(names);
   },
 };
+export default delegator;

@@ -1,31 +1,34 @@
 import React from "react";
 import Presenter from "./Presenter";
 import "./playerInput.css";
-const {
-  savePlayers,
-  getStringEmailConvertListNames,
-  convertListToObject,
-} = Presenter;
+const { savePlayers, getStringEmailConvertListNames, convertListToObject } =
+  Presenter;
 
 function PlayerInput({ onChangeInput }) {
-  const convertEmailsStrToPlayers = ({ target }) => {
-    const tempEmails = target.value;
-    const listNames = getStringEmailConvertListNames(tempEmails);
-    savePlayers(convertListToObject(listNames));
-    onChangeInput(listNames);
+  const convertEmailsStrToPlayers = ({ target, keyCode }) => {
+    const BACK_SPACE = 8;
+    if (keyCode !== BACK_SPACE) {
+      const tempEmails = target.value;
+      const listNames = getStringEmailConvertListNames(tempEmails);
+      savePlayers(convertListToObject(listNames));
+      onChangeInput(listNames);
+    }
   };
 
   return (
     <div className="areaInput">
       <div className="main-title_areaInput">Let&#39;s Split up!</div>
       <div className="title-input__areaInput">
-        Copy and paste the emails/name from the email list:{" "}
-        {'e.g: "Jon snow<snow@mycompany.com>;'} or just type the names
-        separated by {";"}
+        Copy and paste the names separate by break line, example:<br/>
+        {'Jon snow'}<br/>
+        {'Darth Vader'}<br/>
+        {'Messi'}<br/>
+        {'Johan Cruijff'}<br/>
+        <br/>
       </div>
       <div className="insert-players__areaInput">
         <textarea
-          onChange={convertEmailsStrToPlayers}
+          onKeyDown={convertEmailsStrToPlayers}
           name="insert_players"
           rows="10"
         />

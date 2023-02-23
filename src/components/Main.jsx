@@ -11,11 +11,11 @@ function Teams() {
 
   useEffect(() => {
     Events.scrollEvent.register("begin", function () {
-      //console.log("scrollEvent begin", arguments);
+     // console.log("scrollEvent begin", arguments);
     });
 
     Events.scrollEvent.register("end", function () {
-      //console.log("scrollEvent end", arguments);
+     // console.log("scrollEvent end", arguments);
     });
 
     scrollSpy.update();
