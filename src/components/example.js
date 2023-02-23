@@ -1,6 +1,6 @@
 import React from "react";
 
-export default () => {
+export default function example() {
   const content = `Jon snow<snow@mastercard.com>;
     Aria Stark<aria@mastercard.com>;
     Sansa Stark<sanza@mastercard.com>;
@@ -15,4 +15,4 @@ export default () => {
     Tony Stark<startk@mastercard.com>;
     `;
   return <div className="content">{content}</div>;
-};
+}

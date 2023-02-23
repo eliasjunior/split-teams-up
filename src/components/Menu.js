@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./menu.css";
 
-export default () => {
+export default function Menu() {
   return (
     <div className="container shadow-sm p-3 mb-5 bg-white rounded">
       <div className="menu-item">
@@ -16,4 +16,4 @@ export default () => {
       </div>
     </div>
   );
-};
+}

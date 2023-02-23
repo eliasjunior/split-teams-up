@@ -17,7 +17,7 @@ function PlayerInput({ onChangeInput }) {
 
   return (
     <div className="areaInput">
-      <div className="main-title_areaInput">Let's Split up!</div>
+      <div className="main-title_areaInput">Let&#39;s Split up!</div>
       <div className="title-input__areaInput">
         Copy and paste the emails/name from the email list:{" "}
         {'e.g: "Jon snow<snow@mastercard.com>;'} or just type the names
