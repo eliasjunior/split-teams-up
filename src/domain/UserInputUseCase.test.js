@@ -1,6 +1,6 @@
 import UseCase from "./UserInputUseCase";
 
-const { shuffle, convertEmailsToListOfNames } = UseCase({});
+const { shuffle, shapeStringToList } = UseCase({});
 
 describe("Teams", () => {
   it("should 2 teams return same numbers of players", () => {
@@ -115,15 +115,15 @@ describe("Teams", () => {
   it("should convert a email string list into names", () => {
     const emailsString =
       "Jon snow<snow@mycompany.com>;Aria<aria@mycompany.com>;";
-    expect(convertEmailsToListOfNames(emailsString).length).toBe(2);
+    expect(shapeStringToList(emailsString).length).toBe(2);
 
     const emailsString2 =
       "Jon snow<snow@mycompany.com>;Aria<aria@mycompany.com>;Jon snow<snow@mycompany.com>;\n";
-    expect(convertEmailsToListOfNames(emailsString2).length).toBe(3);
+    expect(shapeStringToList(emailsString2).length).toBe(3);
 
     const emailsString3 = "Jon snow\nAria\n";
 
-    expect(convertEmailsToListOfNames(emailsString3).length).toBe(2);
+    expect(shapeStringToList(emailsString3).length).toBe(2);
 
   });
 });
