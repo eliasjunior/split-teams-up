@@ -1,13 +1,13 @@
 import { sortMainList, requiredParameter } from "../common/util";
 
-export default function ConvertEmailNamePlayerUseCase(
+export default function UserInputPlayerUseCase(
   { idGenerator } = requiredParameter("teams dependencies")
 ) {
   return {
-    convertEmailsToListOfNames: (
-      emailsStr = requiredParameter("emailsStr")
+    shapeStringToList: (
+      inputEntered = requiredParameter("inputEntered")
     ) => {
-      const listOfNames = buildNameList(emailsStr)
+      const listOfNames = buildNameList(inputEntered)
         .filter((value) => value !== "")
         .map(getFullName)
         .filter((name) => name.length > 0);

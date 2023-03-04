@@ -4,16 +4,13 @@ import "./menu.css";
 
 export default function Menu() {
   return (
-    <div className="container shadow-sm p-3 mb-5 bg-white rounded">
-      <div className="menu-item">
+    <ul className="list-group">
+      <li className="list-group-item">
         <Link to="splitup">Split teams up</Link>
-      </div>
-      <div className="menu-item">
+      </li>
+      <li className="list-group-item">
         <Link to="">Confirm game[In construction]</Link>
-      </div>
-      <div className="menu-item">
-        <Link to="example">List emails example</Link>
-      </div>
-    </div>
+      </li>
+    </ul>
   );
 }

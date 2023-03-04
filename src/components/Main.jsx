@@ -11,15 +11,12 @@ function Teams() {
 
   useEffect(() => {
     Events.scrollEvent.register("begin", function () {
-     // console.log("scrollEvent begin", arguments);
+      // console.log("scrollEvent begin", arguments);
     });
-
     Events.scrollEvent.register("end", function () {
-     // console.log("scrollEvent end", arguments);
+      // console.log("scrollEvent end", arguments);
     });
-
     scrollSpy.update();
-
     // Specify how to clean up after this effect:
     return function cleanup() {
       Events.scrollEvent.remove("begin");
@@ -34,15 +31,26 @@ function Teams() {
 
   const updateInput = (_players) => {
     setPlayers(_players);
-    scroll.scrollToBottom();
   };
 
+  const updateViewPort = () => {
+    scroll.scrollToBottom();
+  };
+  const getTotalLabel = () => {
+    if (!players || !players.list) {
+      return "";
+    }
+    return players.list === 0
+      ? ""
+      : "Total players " + players.list.length;
+  };
   return (
     <div className="content">
-      <PlayerInput onChangeInput={updateInput}></PlayerInput>
-      <div className="total-label">
-        {players.length === 0 ? "" : `Total players ${players.length}`}
-      </div>
+      <PlayerInput
+        onChangeInput={updateInput}
+        onRearangeView={updateViewPort}
+      ></PlayerInput>
+      <div className="total-label">{getTotalLabel()}</div>
       <PlayerList onClickButton={splitTeamsUp}></PlayerList>
       <TeamsView {...teams}></TeamsView>
     </div>

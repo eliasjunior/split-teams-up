@@ -1,21 +1,21 @@
 import PlayerRepository from "./PlayerRepository";
 import nanoid from "nanoid";
-import ConvertEmailNamePlayerUseCase from "./ConvertEmailNamePlayerUseCase";
+import UserInputPlayerUseCase from "./UserInputUseCase";
 const { getPlayerList, updatePlayerList, addAll } = PlayerRepository();
 
 const {
-  convertEmailsToListOfNames,
+  shapeStringToList,
   convertListToObject,
   shuffle,
-} = ConvertEmailNamePlayerUseCase({
+} = UserInputPlayerUseCase({
   idGenerator: nanoid,
 });
-
-export default {
-  convertEmailsToListOfNames,
-  convertListToObject,
-  shuffle,
-  addAll,
-  getPlayerList,
-  updatePlayerList,
-};
+const domainDelegator = {
+  shapePlayerInfo: shapeStringToList,
+  convertListToPlayers: convertListToObject,
+  shufflePlayersPerTeam: shuffle,
+  addAll: addAll,
+  getPlayerList: getPlayerList,
+  updatePlayerList: updatePlayerList,
+}
+export default domainDelegator;

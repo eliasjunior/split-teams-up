@@ -1,10 +1,11 @@
 import teams from "../../domain";
 
-const { shuffle, getPlayerList } = teams;
+const { shufflePlayersPerTeam, getPlayerList } = teams;
 
-export default {
-  shuffle,
+const presenter =  {
+  shuffleAction: shufflePlayersPerTeam,
   getPlayers() {
     return getPlayerList();
   },
-};
+}
+export default presenter;

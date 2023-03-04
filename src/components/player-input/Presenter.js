@@ -1,14 +1,16 @@
 import teams from "../../domain";
 
-const { convertEmailsToListOfNames, convertListToObject, addAll } = teams;
+const { shapePlayerInfo, convertListToPlayers, addAll } = teams;
 
 const delegator = {
-  convertListToObject,
+  convertListToPlayers,
   savePlayers(players) {
     addAll(players);
   },
-  getStringEmailConvertListNames(names) {
-      return convertEmailsToListOfNames(names);
+  userTypedInput(names) {
+    //TODO this has to be in the main, 
+    // then main pass via props the input down
+      return shapePlayerInfo(names);
   },
 };
 export default delegator;

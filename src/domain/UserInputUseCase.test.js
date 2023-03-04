@@ -1,4 +1,4 @@
-import UseCase from "./ConvertEmailNamePlayerUseCase";
+import UseCase from "./UserInputUseCase";
 
 const { shuffle, convertEmailsToListOfNames } = UseCase({});
 

@@ -19,7 +19,8 @@ function App() {
             <Main />
           </Route>
           <Route path="/">
-            <MCMenu />
+            <Main />
+            {/* <MCMenu /> */}
           </Route>
         </Switch>
       </div>

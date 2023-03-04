@@ -3,7 +3,7 @@ import PlayerView from "../player-view";
 import Presenter from "./Presenter";
 import "./playerList.css";
 
-const { getPlayers, shuffle } = Presenter;
+const { getPlayers, shuffleAction } = Presenter;
 
 function PlayerList({ onClickButton }) {
   const [validForm, setValidForm] = useState(false);
@@ -12,7 +12,7 @@ function PlayerList({ onClickButton }) {
     const foundInvalid = playerList.list.find((p) => p.type === "");
     setValidForm(foundInvalid);
     if (!foundInvalid) {
-      onClickButton(shuffle(playerList.list));
+      onClickButton(shuffleAction(playerList.list));
     }
   };
 
